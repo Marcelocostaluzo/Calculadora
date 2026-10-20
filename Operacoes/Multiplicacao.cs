@@ -6,4 +6,3 @@ public class Multiplicacao : IOperacao
     public string Simbolo => "x";
     public decimal Executar(decimal a, decimal b) => a * b;
 }
-        
