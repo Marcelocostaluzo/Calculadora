@@ -59,24 +59,24 @@ public class Menu
         historico.Adicionar(registro);
 
         if (registro.Erro is null)
-            Helper.Mensagem($"\n{registro.A} {registro.Simbolo} {registro.B} = {registro.Resultado:f2}", false, true);
+            Helper.Mensagem($"\n{Helper.FormatarNumero(registro.A)} {registro.Simbolo} {Helper.FormatarNumero(registro.B)} = {Helper.FormatarNumero(registro.Resultado!.Value)}", false, true);
         else
-            Helper.Mensagem($"{registro.A} {registro.Simbolo} {registro.B} = [ERRO] {registro.Erro}", true, true);
+            Helper.Mensagem($"{Helper.FormatarNumero(registro.A)} {registro.Simbolo} {Helper.FormatarNumero(registro.B)} = [ERRO] {registro.Erro}", true, true);
     }
 
     private static void VerRegistro(HistoricoService historico)
     {
         Helper.Mensagem("=== Histórico ===\n", true, false);
 
-        Console.WriteLine($"{"Operação", -12} | {"Resultado", -12} \n----------------------------------------------------------------------------------");
+        Console.WriteLine($"{"Operação (A | B)", -17} | {"Resultado", -12} \n----------------------------------------------------------------------------------");
         if (historico.Registros.Count == 0) Console.WriteLine("\nHistórico vazio.");
-        for (var i = 0; i < historico.Registros.Count; i++)
+        foreach (var r in historico.Registros)
         {
-            if (historico.Registros[i].Erro is null)
-                Console.WriteLine($"{historico.Registros[i].A} {historico.Registros[i].Simbolo} {historico.Registros[i].B, -8} | {historico.Registros[i].Resultado:f2}");
+            if (r.Erro is null)
+                Console.WriteLine($"{Helper.FormatarNumero(r.A), -5} {r.Simbolo} {Helper.FormatarNumero(r.B), 5} {"", -4}| {Helper.FormatarNumero(r.Resultado!.Value)}");
             
             else 
-                Console.WriteLine($"{historico.Registros[i].A} {historico.Registros[i].Simbolo} {historico.Registros[i].B, -8} | [ERRO] {historico.Registros[i].Erro}");
+                Console.WriteLine($"{Helper.FormatarNumero(r.A), -5} {r.Simbolo} {Helper.FormatarNumero(r.B), 5} | [ERRO] {r.Erro}");
         }
         Helper.Mensagem("", false, true);
     }
