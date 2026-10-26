@@ -47,5 +47,5 @@ public class Helper
         }
     }
 
-    public static string FormatarNumero (decimal valor) => valor.ToString("0.####");
+    public static string FormatarNumero (decimal valor) => valor.ToString("0.####", CultureInfo.GetCultureInfo("pt-BR"));
 }
