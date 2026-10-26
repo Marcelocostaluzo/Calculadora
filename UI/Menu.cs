@@ -68,7 +68,7 @@ public class Menu
     {
         Helper.Mensagem("=== Histórico ===\n", true, false);
 
-        Console.WriteLine($"{"Nome", -18} | {"Operação", -12} | {"Resultado", -40} | {"Data", -12} \n----------------------------------------------------------------------------------");
+        Console.WriteLine($"{"Nome", -18} | {"Operação", -12} | {"Resultado", -40} | {"Data", -12} \n----------------------------------------------------------------------------------------------");
         if (historico.Registros.Count == 0) Console.WriteLine("\nHistórico vazio.");
         foreach (var r in historico.Registros)
         {
