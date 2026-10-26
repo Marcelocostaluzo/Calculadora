@@ -75,11 +75,11 @@ public class Menu
             string nome = r.Nome;
             string data = r.Data.ToString("dd/MM/yyyy");
             string operacao = $"{Helper.FormatarNumero(r.A)} {r.Simbolo} {Helper.FormatarNumero(r.B)}";
-            string resulatado = r.Erro is null
-                ? $"{r.Resultado}"
+            string resultatado = r.Erro is null
+                ? $"{Helper.FormatarNumero(r.Resultado!.Value)}"
                 : $"[ERRO] {r.Erro}";
             
-            Console.WriteLine($"{nome, -18} | {operacao, -12} | {resulatado, -40} | {data, -12}");
+            Console.WriteLine($"{nome, -18} | {operacao, -12} | {resultatado, -40} | {data, -12}");
         }
         Helper.Mensagem("", false, true);
     }
