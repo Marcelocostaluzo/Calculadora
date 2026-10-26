@@ -42,4 +42,6 @@ public class Helper
             Console.WriteLine("[ERRO] valor inválido");
         }
     }
+
+    public static string FormatarNumero (decimal valor) => valor.ToString("0.####");
 }
