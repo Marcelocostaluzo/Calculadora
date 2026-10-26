@@ -68,15 +68,18 @@ public class Menu
     {
         Helper.Mensagem("=== Histórico ===\n", true, false);
 
-        Console.WriteLine($"{"Operação (A | B)", -17} | {"Resultado", -12} \n----------------------------------------------------------------------------------");
+        Console.WriteLine($"{"Nome", -18} | {"Operação", -12} | {"Resultado", -40} | {"Data", -12} \n----------------------------------------------------------------------------------");
         if (historico.Registros.Count == 0) Console.WriteLine("\nHistórico vazio.");
         foreach (var r in historico.Registros)
         {
-            if (r.Erro is null)
-                Console.WriteLine($"{Helper.FormatarNumero(r.A), -5} {r.Simbolo} {Helper.FormatarNumero(r.B), 5} {"", -4}| {Helper.FormatarNumero(r.Resultado!.Value)}");
+            string nome = r.Nome;
+            string data = r.Data.ToString("dd/MM/yyyy");
+            string operacao = $"{Helper.FormatarNumero(r.A)} {r.Simbolo} {Helper.FormatarNumero(r.B)}";
+            string resulatado = r.Erro is null
+                ? $"{r.Resultado}"
+                : $"[ERRO] {r.Erro}";
             
-            else 
-                Console.WriteLine($"{Helper.FormatarNumero(r.A), -5} {r.Simbolo} {Helper.FormatarNumero(r.B), 5} | [ERRO] {r.Erro}");
+            Console.WriteLine($"{nome, -18} | {operacao, -12} | {resulatado, -40} | {data, -12}");
         }
         Helper.Mensagem("", false, true);
     }
