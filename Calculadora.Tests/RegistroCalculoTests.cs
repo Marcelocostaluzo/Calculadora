@@ -36,9 +36,8 @@ public class RegistroCalculoTests
     {
         var divisao = new Divisao();
 
-        RegistroCalculo registro = Calcular.Executar(divisao, 2, 0);
-        
         var antes = DateTime.Now;
+        RegistroCalculo registro = Calcular.Executar(divisao, 2, 0);
         var depois = DateTime.Now;
 
 
