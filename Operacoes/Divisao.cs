@@ -6,7 +6,7 @@ public class Divisao : IOperacao
     public string Simbolo => "÷";
     public decimal Executar(decimal a, decimal b)
     {
-        if (b == 0) throw new DivideByZeroException("Não é possível devidir por zero");
+        if (b == 0) throw new DivideByZeroException("Não é possível dividir por zero");
         return a / b;
     }
 }

@@ -1,3 +1,5 @@
+using System.Globalization;
+
 namespace Calculadora.Helpers;
 
 public class Helper
@@ -34,7 +36,7 @@ public class Helper
         while (true)
         {
             Console.Write($"{mensagem}: ");
-            if (decimal.TryParse(Console.ReadLine(), out decimal valido))
+            if (decimal.TryParse(Console.ReadLine(), CultureInfo.GetCultureInfo("pt-BR"), out decimal valido))
                 return valido;
             
             Console.WriteLine("[ERRO] valor inválido");
